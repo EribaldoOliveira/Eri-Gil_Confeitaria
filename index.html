@@ -1,235 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Pizzaria San Marco</title>
-    <style>
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .product-item {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .input-field input, .input-field select, .input-field textarea {
-                width: 100%;
-                max-width: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eri & Gil Confeitaria</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js"defer></script>
 </head>
 <body>
 
-<header>
-    <img src="assets/img/logo.PNG" alt="Logo Pizzaria San Marco" style="width: 250px;">
-    <h1>Pizzaria San Marco</h1>
-    <h2>Qualidade e menor preços 🍕😋</h2>
-    <h3>@pizzariasanmarco</h3>
-    <h3>79 8836-3832</h3>
-    <a href="https://wa.me/5579988363832" target="_blank" style="
-     display: inline-flex;
-     align-items: center;
-     background-color: #25D366;
-     color: white;
-     padding: 8px 12px;
-     border-radius: 8px;
-     text-decoration: none;
-     font-weight: bold;
-     font-size: 14px;
-     width: auto;
- ">
-        <img src="assets/img/zap.jpg" alt="WhatsApp"  style="width: 20px; margin-right: 6px;">
-        Fale comigo no WhatsApp
+  <header>
+    <img class="logo-img" src="assets/img/logo_menina.jpg" alt="Logo Eri Confeitaria">
+    <h1>Eri & Gil Confeitaria</h1>
+    <h2>😋 Qualidade e menor preço 😋</h2>
+    <h3>@Eri&GilConfeitaria</h3>
+    <h3>79 9 8803-5219</h3>
+
+    <a href="https://wa.me/5579988035219?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!" target="_blank" class="btn-whatsapp">
+      <img src="assets/img/zap.jpg" alt="WhatsApp"> Fale comigo no WhatsApp
     </a>
-</header>
+  </header>
 
-<nav>
+  <nav>
     <a href="#">Home</a>
-    <a href="#">Produtos</a>
-    <a href="#">Sobre</a>
-    <a href="#">Contato</a>
-</nav>
+    <a href="#produtos">Produtos</a>
+    <a href="#pedido">Pedido</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
 
-<h2 style="margin: 1.5rem;">Escolha o seu produto</h2>
+  <!-- Carrossel -->
+<section class="apresentacao">
+  <div class="carrossel">
+    <div class="slide ativo"><img src="assets/img/j.jpg" alt="j.jpg"></div>
+    <div class="slide"><img src="assets/img/e.jpg" alt="e.jpg"></div>
+    <div class="slide"><img src="assets/img/h.jpg" alt="h.jpg"></div>
+    <div class="slide"><img src="assets/img/a.jpg" alt="a.jpg"></div>
+    <div class="slide"><img src="assets/img/m.jpg" alt="m.jpg"></div>
+    <div class="slide"><img src="assets/img/b.jpg" alt="b.jpg"></div>
+    <div class="slide"><img src="assets/img/f.jpg" alt="f.jpg"></div>
 
-<section class="products" id="product-list">
-    <!-- Produtos -->
-    <div class="product-item">
-        <img src="assets/img/pizza1.png" width="10%" alt="Pizza Gigante">
-        <h3>Pizza Gigante</h3>
-        <p>R$ 80,00</p>
-        <a href="#" onclick="addToCart('Pizza Gigante', 80.00)">Adicionar ao Carrinho</a>
-    </div>
-    <div class="product-item">
-        <img src="assets/img/pizza2.png" width="10%" alt="Pizza Grande">
-        <h3>Pizza Grande</h3>
-        <p>R$ 70,00</p>
-        <a href="#" onclick="addToCart('Pizza Grande', 70.00)">Adicionar ao Carrinho</a>
-    </div>
-    <div class="product-item">
-        <img src="assets/img/pizza3.png" width="10%" alt="Pizza Média">
-        <h3>Pizza Média</h3>
-        <p>R$ 60,00</p>
-        <a href="#" onclick="addToCart('Pizza Média', 60.00)">Adicionar ao Carrinho</a>
-    </div>
-    <div class="product-item">
-        <img src="assets/img/pizza4.png" width="10%" alt="Pizza Pequena">
-        <h3>Pizza Pequena</h3>
-        <p>R$ 50,00</p>
-        <a href="#" onclick="addToCart('Pizza Pequena', 50.00)">Adicionar ao Carrinho</a>
-    </div>
-    <div class="product-item">
-        <img src="assets/img/pizza25.png" width="10%" alt="Pizza Promoção">
-        <h3>Pizza Promoção</h3>
-        <p>R$ 25,00</p>
-        <a href="#" onclick="addToCart('Pizza Promoção', 25.00)">Adicionar ao Carrinho</a>
-    </div>
-    <div class="product-item">
-        <img src="assets/img/pizzaComRefri.png" width="10%" alt="Combo Promoção">
-        <h3>Combo Promoção</h3>
-        <p>R$ 85,00</p>
-        <a href="#" onclick="addToCart('Combo Promoção', 85.00)">Adicionar ao Carrinho</a>
-    </div>
+    <button class="anterior" onclick="moverSlide(-1)">❮</button>
+    <button class="proximo" onclick="moverSlide(1)">❯</button>
+  </div>
+
+  <!-- Indicadores serão criados pelo JS -->
+  <div class="indicadores"></div>
 </section>
 
-<div style="width: 90%; align-items: center; display: flex; flex-direction: column; justify-content: center; text-align: center; margin: 0 auto;">
-    <div class="container" style="padding: 10px; background-color: SpringGreen; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-        <!-- Formulário para informações do cliente -->
-        <div class="input-field" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <label for="customer-name"><h2>Seu Nome</h2>:</label><br>
-            <input type="text" id="customer-name" placeholder="Digite seu nome" required>
-        </div>
-        <div class="input-field" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <label for="customer-address"><h2>Endereço</h2>:</label><br>
-            <input type="text" id="customer-address" placeholder="Digite seu endereço" required>
-        </div>
-        <div class="input-field" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <label for="customer-reference"><h2>Ponto de Referência</h2>:</label><br>
-            <input type="text" id="customer-reference" placeholder="Digite um ponto de referência" required>
-        </div>
-        <div class="input-field" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <label for="customer-change"><h2>Deseja troco?</h2>:</label><br>
-            <select id="customer-change" onchange="toggleChangeValue(this)">
-                <option value="no">Não</option>
-                <option value="yes">Sim</option>
-            </select>
-        </div>
-        <div class="input-field" id="change-value-field" style="width: 100%; max-width: 400px; margin-bottom: 20px; display: none;">
-            <label for="change-value"><h2>Valor do Troco</h2>:</label><br>
-            <input type="number" id="change-value" placeholder="Digite o valor do troco" min="0">
-        </div>
-        <div class="input-field" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <label for="customer-message"><h2>Mensagem:</h2></label><br>
-            <textarea id="customer-message" placeholder="Digite uma mensagem (opcional)"></textarea>
-        </div>
+  <h2 class="chamada">Escolha o seu produto</h2>
 
-        <!-- Lista de Pedidos -->
-        <section class="order-list" id="order-list" style="width: 100%; max-width: 400px; margin-bottom: 20px;">
-            <h2>Carrinho de Compras</h2>
-            <div id="cart-items"></div>
-            <p class="order-total" id="order-total">Total: R$ 0,00</p>
-            <button class="finish-btn" onclick="finishOrder()" style="margin-top: 20px;">Finalizar Pedido</button>
-        </section>
+  <!-- Lista de Produtos -->
+  <section class="produtos" id="produtos">
+    <div class="produto">
+      <img src="assets/img/j.jpg" alt="Docinho j">
+      <h3>Docinho "J"</h3>
+      <p>R$ 10,00</p>
+      <button onclick="adicionarCarrinho('Docinho J', 10)">Adicionar</button>
     </div>
+    <div class="produto">
+      <img src="assets/img/e.jpg" alt="Docinho e">
+      <h3>Docinho "E"</h3>
+      <p>R$ 8,00</p>
+      <button onclick="adicionarCarrinho('Docinho E', 8)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/h.jpg" alt="Docinho h">
+      <h3>Docinho "H"</h3>
+      <p>R$ 12,00</p>
+      <button onclick="adicionarCarrinho('Docinho H', 12)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/a.jpg" alt="Docinho a">
+      <h3>Docinho "A"</h3>
+      <p>R$ 15,00</p>
+      <button onclick="adicionarCarrinho('Docinho A', 15)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/m.jpg" alt="Docinho m">
+      <h3>Docinho "M"</h3>
+      <p>R$ 11,00</p>
+      <button onclick="adicionarCarrinho('Docinho M', 11)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/b.jpg" alt="Docinho b">
+      <h3>Docinho "B"</h3>
+      <p>R$ 7,00</p>
+      <button onclick="adicionarCarrinho('Docinho B', 7)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/f.jpg" alt="Docinho f">
+      <h3>Docinho "F"</h3>
+      <p>R$ 9,00</p>
+      <button onclick="adicionarCarrinho('Docinho F', 9)">Adicionar</button>
+    </div>
+  </section>
+
+  <!-- Formulário e Carrinho -->
+  <section class="pedido" id="pedido">
+    <div class="formulario">
+      <div class="campo">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" required>
+      </div>
+
+      <div class="campo">
+        <label for="referencia">Ponto de Referência:</label>
+        <input type="text" id="referencia" required>
+      </div>
+
+      <div class="campo">
+        <label for="troco">Deseja troco?</label>
+        <select id="troco" onchange="alternarTroco(this)">
+          <option value="nao">Não</option>
+          <option value="sim">Sim</option>
+        </select>
+      </div>
+
+      <div class="campo" id="campo-troco" style="display:none;">
+        <label for="valor-troco">Valor do Troco:</label>
+        <input type="number" id="valor-troco" min="0">
+      </div>
+
+      <div class="campo">
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem"></textarea>
+      </div>
+    </div>
+
+   <!-- Carrinho -->
+<div class="carrinho">
+  <h2>Carrinho de Compras</h2>
+  <div id="itens-carrinho"></div>
+  <p id="total-carrinho">Total: R$ 0,00</p>
+  <button class="btn-whatsapp finalizar" onclick="finalizarPedido()">
+    <img src="assets/img/zap.jpg" alt="WhatsApp"> Finalizar Pedido
+  </button>
 </div>
 
+  </section>
 
-
-<footer>
-    <p>© 2025 Pizzaria San Marco. Todos os direitos reservados.</p>
-
-    <a href="https://wa.me/5579988035219" target="_blank">
-        <img src="assets/img/zap.jpg" alt="WhatsApp" width="30">
-        Clique aqui e Fale comigo no WhatsApp
+  <footer>
+    <p>© 2025 Eri & Gil Confeitaria - Todos os direitos reservados.</p>
+    <a href="https://wa.me/5579988035219?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!" target="_blank">
+      <img src="assets/img/zap.jpg" alt="WhatsApp"> Fale comigo no WhatsApp
     </a>
-</footer>
-
-<script>
-    // Exibir data atual
-    const dataAtual = new Date().toLocaleDateString('pt-BR');
-    document.getElementById('data-atual').textContent = dataAtual;
-
-    function finishOrder() {
-        const name = document.getElementById('customer-name').value;
-        const address = document.getElementById('customer-address').value;
-        const reference = document.getElementById('customer-reference').value;
-        const message = document.getElementById('customer-message').value;
-        const changeOption = document.getElementById('customer-change').value;
-        const changeValue = document.getElementById('change-value').value;
-
-        // Verificação de campos obrigatórios
-        if (!name || !address || !reference) {
-            alert('Por favor, preencha todos os campos obrigatórios.');
-            return;
-        }
-
-        // Verificação se o carrinho está vazio
-        if (cart.length === 0) {
-            alert('Seu carrinho está vazio. Adicione produtos antes de finalizar.');
-            return;
-        }
-
-        // Criação da mensagem de pedido
-        let orderMessage = `Olá San Marco, sou ${name} e gostaria de finalizar o seguinte pedido:\n\n`;
-        let total = 0;
-
-        cart.forEach(product => {
-            const formattedPrice = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            orderMessage += `${product.name}: ${formattedPrice}\n`;
-            total += product.price;
-        });
-
-        // Total
-        orderMessage += `\nTotal: ${total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`;
-        orderMessage += `\nEndereço: ${address}\nPonto de Referência: ${reference}`;
-
-        if (changeOption === 'yes') {
-            orderMessage += `\nTroco: R$ ${changeValue}`;
-        }
-
-        if (message) {
-            orderMessage += `\nMensagem: ${message}`;
-        }
-
-        // Exibição da mensagem final
-        alert(orderMessage);
-    }
-    
-    let cart = [];
-
-    function addToCart(name, price) {
-        cart.push({ name, price });
-        updateCartDisplay();
-    }
-
-    function updateCartDisplay() {
-        const cartItemsDiv = document.getElementById('cart-items');
-        const orderTotal = document.getElementById('order-total');
-        cartItemsDiv.innerHTML = '';
-        
-        let total = 0;
-        cart.forEach(item => {
-            const itemDiv = document.createElement('div');
-            itemDiv.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
-            cartItemsDiv.appendChild(itemDiv);
-            total += item.price;
-        });
-
-        orderTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-    }
-
-    function toggleChangeValue(selectElement) {
-        const changeValueField = document.getElementById('change-value-field');
-        if (selectElement.value === 'yes') {
-            changeValueField.style.display = 'block';
-        } else {
-            changeValueField.style.display = 'none';
-        }
-    }
-</script>
+  </footer>
 
 </body>
 </html>
