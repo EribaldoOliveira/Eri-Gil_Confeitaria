@@ -153,6 +153,6 @@ function finalizarPedido() {
 
     // Envia para WhatsApp
     const mensagemURL = encodeURIComponent(pedido);
-    const numeroWhatsApp = '5579996581839';
+    const numeroWhatsApp = '5579988035219';
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagemURL}`, '_blank');
 }
